@@ -1,0 +1,523 @@
+[
+    {
+        "id": "534315aa9ce852a1",
+        "type": "tab",
+        "label": "PLC-Whatsapp",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5a0238a07a2c283e",
+        "type": "inject",
+        "z": "534315aa9ce852a1",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "144472f0c41d582f"
+            ]
+        ]
+    },
+    {
+        "id": "3d14d6720f735591",
+        "type": "inject",
+        "z": "534315aa9ce852a1",
+        "name": "destroy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "144472f0c41d582f"
+            ]
+        ]
+    },
+    {
+        "id": "875cf3d5d7dcf572",
+        "type": "inject",
+        "z": "534315aa9ce852a1",
+        "name": "restart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "144472f0c41d582f"
+            ]
+        ]
+    },
+    {
+        "id": "144472f0c41d582f",
+        "type": "admin",
+        "z": "534315aa9ce852a1",
+        "name": "WA Admin",
+        "whatsappLink": "ce667207ac0f2db9",
+        "x": 470,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "74f6d2083320485c",
+        "type": "chats-in",
+        "z": "534315aa9ce852a1",
+        "name": "Chats In",
+        "whatsappLink": "ce667207ac0f2db9",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "df094c0bb061efc5"
+            ]
+        ]
+    },
+    {
+        "id": "df094c0bb061efc5",
+        "type": "switch",
+        "z": "534315aa9ce852a1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Green on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Green off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Red on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Red off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Yellow on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Yellow off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "All on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "All off",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 9,
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [
+                "f8c4e1583984d535"
+            ],
+            [
+                "c27f0f90c07e48c1"
+            ],
+            [
+                "dee896faaa048850"
+            ],
+            [
+                "b778ab26c604288d"
+            ],
+            [
+                "024116c8b9471b10"
+            ],
+            [
+                "c5f83424b1027171"
+            ],
+            [
+                "c8d1cc7d07c80f0f"
+            ],
+            [
+                "cccd79166c536f97"
+            ],
+            [
+                "9ecb15ad8f6d3306"
+            ]
+        ]
+    },
+    {
+        "id": "c27f0f90c07e48c1",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Green False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "024116c8b9471b10",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Yellow True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dee896faaa048850",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Red True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b778ab26c604288d",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Red False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5f83424b1027171",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Yellow False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8c4e1583984d535",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "Green True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 460,
+        "wires": [
+            [
+                "d7ab1f5036b88438"
+            ]
+        ]
+    },
+    {
+        "id": "c8d1cc7d07c80f0f",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "All True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cccd79166c536f97",
+        "type": "change",
+        "z": "534315aa9ce852a1",
+        "name": "All False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "739a0b442c59efac",
+        "type": "inject",
+        "z": "534315aa9ce852a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "f8c4e1583984d535"
+            ]
+        ]
+    },
+    {
+        "id": "bf4a661dcc685d01",
+        "type": "inject",
+        "z": "534315aa9ce852a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "c27f0f90c07e48c1"
+            ]
+        ]
+    },
+    {
+        "id": "9ecb15ad8f6d3306",
+        "type": "function",
+        "z": "534315aa9ce852a1",
+        "name": "Send Back",
+        "func": "var number = parseInt(msg.from)\nvar message = \"Example command: \\nGreen on \\nGreen off \\nRed on \\nRed off \\nYellow on \\nYellow off \\nAll on \\nAll off\"\nmsg.toNumber = number\nmsg.payload = message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 780,
+        "wires": [
+            [
+                "831e6a60605188f3"
+            ]
+        ]
+    },
+    {
+        "id": "831e6a60605188f3",
+        "type": "chats-out",
+        "z": "534315aa9ce852a1",
+        "name": "Chats Out",
+        "whatsappLink": "ce667207ac0f2db9",
+        "number": "",
+        "x": 930,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d7ab1f5036b88438",
+        "type": "debug",
+        "z": "534315aa9ce852a1",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ce667207ac0f2db9",
+        "type": "whatsappLink",
+        "cName": "whatsapp-web",
+        "name": "Web",
+        "clientType": "waWebClient"
+    }
+]
